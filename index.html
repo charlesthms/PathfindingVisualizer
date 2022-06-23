@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="./public/css/main.css">
+        
+        <title>Pathfinding Visualizer</title>
+    </head>
+    <body>
+
+        <div class="modal-container" id="modal">
+            <div class="modal">
+                <h1>Bienvenue <span>&#128075;&#127996;</span></h1>
+                <p>Cette application à pour but de visualiser certains algorithmes connus de recherche de chemin (pathfinding). Pour rendre la simulation plus intéressante vous pouvez génerer des <strong>labyrinthes</strong> selon des algorithmes différents ou alors un mode <strong>bac à sable</strong> ou vous placez vous même les obstacles.</p>
+                <p>Vous pouvez changer les points de départ et d'arrivé de l'algorithme <strong>avant</strong> mais pas pendant sont exécution !</p>
+                <button class="btn" id="modalBtn">Compris!</button>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <div class="content">
+                <h1 class="title">Pathfinding Visualizer</h1>
+                <ul>
+                    <li id="visu">visualiser</li>
+                    <li id="gen">generer labyrinthe</li>
+                    <li id="clear" title="Effacer les cellules et conserver les murs">effacer</li>
+                    <li id="reset" title="Supprimer les cellules et les murs">reset</li>
+                </ul>
+            </div>
+        </nav>
+
+
+        
+        <main class="main">
+            <div class="controls">
+                <div class="switches">
+                    <div class="c corners">
+                        <div>
+                            <input type="checkbox" id="switch1" /><label for="switch1">Toggle</label>
+                        </div>
+                        <span>Autoriser diagonales</span>
+                    </div>
+
+                    <div class="c anim">
+                        <div>
+                            <input type="checkbox" id="switch2" /><label for="switch2">Toggle</label>
+                        </div>
+                        <span>Activer les animations</span>
+                    </div>
+                </div>
+
+                <div class="algo">
+                    <p>Recherche</p>
+                    <ul>
+                        <li class="algos" id="dijkstra">Dijkstra</li>
+                        <li class="algos active" id="astar">A* (Manathan)</li>
+                        <li class="algos" id="breadthf">Breadth-First</li>
+                        <li class="algos" id="jps""">Jump Point Search</li>
+                    </ul>
+                </div>
+
+                <div class="algo">
+                    <p>Labyrinthes</p>
+                    <ul>
+                        <li id="dfs" class="mazegen active">Depth First Search</li>
+                        <li id="prim" class="mazegen">Prim</li>
+                        <li id="rd" class="mazegen">Recursive Division</li>
+                        <li id="kruskal" class="mazegen">Kruskal</li>
+                    </ul>
+                </div>
+
+                <div class="stat visited">
+                    <p class="title">Cases visitées</p>
+                    <p class="num_v">0</p>
+
+                    <div class="bar bar_v"></div>
+                </div>
+
+                <div class="stat path">
+                    <p class="title">Longueur du chemin</p>
+                    <p class="num_p">0</p>
+
+                    <div class="bar bar_p"></div>
+                </div>
+            </div>
+            <div class="app" id="app">
+                <div class="bg">
+                    <div class="grid"></div>
+                </div>
+            </div>
+        </main>
+        
+        <script src="./public/js/mazeGen.js "></script>
+        <script src="./public/js/alogrithms.js"></script>
+        <script src="./public/js/utils.js"></script>
+    </body>
+</html>
